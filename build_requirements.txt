@@ -1,0 +1,10 @@
+# Build dependencies for creating exe files
+pyinstaller>=5.0.0
+auto-py-to-exe>=2.0.0
+
+# GUI related (usually bundled with Python)
+# tkinter (built-in)
+
+# Additional packages that might be needed
+pillow>=8.0.0          # Image processing (for icons if needed)
+setuptools>=60.0.0     # Packaging tools 

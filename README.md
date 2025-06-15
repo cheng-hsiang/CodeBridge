@@ -22,12 +22,31 @@ vibe coding 到一半 還不知道效果如何 見諒
 
 ## 🚀 快速開始
 
-### 安裝需求
+### 方式一：GUI 版本（推薦）
 
+**🖥️ 圖形化介面，無需安裝 Python**
+
+1. **下載執行檔**
+   - 前往 [GitHub Releases](https://github.com/your-repo/releases)
+   - 下載 `CodeBridge-GUI-*-windows.zip`
+   - 解壓縮後執行 `CodeBridge-GUI.exe`
+
+2. **使用方法**
+   - 選擇專案目錄
+   - 設定轉換選項
+   - 點擊「開始轉換」
+
+> 詳細使用說明請參考 [GUI_README.md](GUI_README.md)
+
+### 方式二：命令列版本
+
+**⚡ 適合開發者和自動化腳本**
+
+#### 安裝需求
 - Python 3.6 或更高版本
 - 支援 Windows、macOS、Linux
 
-### 基本使用
+#### 基本使用
 
 ```bash
 # 基本轉換（預設處理當前目錄）
