@@ -6,7 +6,7 @@ CodeBridge - 配置管理
 
 import json
 from pathlib import Path
-from typing import Set, Dict, Any, Optional
+from typing import Set, Dict, Any, Optional, List
 import logging
 
 

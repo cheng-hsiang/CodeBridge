@@ -1,5 +1,7 @@
 # 🌉 CodeBridge - 程式碼簡繁轉換工具
 
+vibe coding 到一半 還不知道效果如何 見諒
+
 > **Advanced Simplified to Traditional Chinese Converter for Development Projects**
 > 
 > 專為軟體開發專案設計的智慧型簡體轉繁體中文工具
