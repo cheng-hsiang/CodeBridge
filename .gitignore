@@ -190,4 +190,8 @@ test_output/
 
 # 臨時文件
 temp/
-tmp/ 
+tmp/
+
+# 測試目錄 - 不要推送到 GitHub
+SER2025WIN1124H2SWITCH/
+**/SER2025WIN1124H2SWITCH/ 
