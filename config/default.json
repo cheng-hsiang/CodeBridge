@@ -1,0 +1,41 @@
+{
+  "_comment": "CodeBridge 預設配置檔案",
+  "_description": {
+    "target_extensions": "要處理的檔案類型",
+    "exclude_dirs": "要排除的目錄",
+    "max_file_size": "最大檔案大小 (bytes)",
+    "create_backup": "是否創建備份檔案",
+    "log_level": "日誌級別 (DEBUG, INFO, WARNING, ERROR)",
+    "output_format": "輸出格式 (console, json, markdown)",
+    "custom_mappings_file": "自定義映射檔案路徑",
+    "report_file": "報告輸出檔案路徑",
+    "encoding_detection": "是否啟用編碼自動檢測",
+    "parallel_processing": "是否啟用平行處理",
+    "max_workers": "最大工作執行緒數"
+  },
+  "target_extensions": [
+    ".py", ".js", ".jsx", ".ts", ".tsx", ".vue", ".html", ".htm",
+    ".css", ".scss", ".sass", ".less", ".json", ".xml", ".yaml", ".yml",
+    ".md", ".txt", ".csv", ".sql", ".conf", ".config", ".ini", ".toml",
+    ".dockerfile", ".gitignore", ".env", ".properties", ".sh", ".bat",
+    ".ps1", ".makefile", ".cmake", ".gradle", ".maven", ".npm", ".lock",
+    ".java", ".c", ".cpp", ".h", ".hpp", ".cs", ".go", ".rs", ".php",
+    ".rb", ".swift", ".kt", ".scala", ".clj", ".hs", ".ml", ".r", ".m"
+  ],
+  "exclude_dirs": [
+    "node_modules", "venv", "__pycache__", ".git", "dist", "build",
+    ".next", ".nuxt", ".vscode", ".idea", "logs", "temp", "tmp",
+    "coverage", ".pytest_cache", ".tox", ".env", "vendor", "target",
+    "bin", "obj", ".gradle", ".maven", "out", ".output", ".svn",
+    ".hg", "bower_components", ".sass-cache", ".nyc_output"
+  ],
+  "max_file_size": 10485760,
+  "create_backup": false,
+  "log_level": "INFO",
+  "output_format": "console",
+  "custom_mappings_file": null,
+  "report_file": null,
+  "encoding_detection": true,
+  "parallel_processing": false,
+  "max_workers": 4
+}
