@@ -159,6 +159,10 @@ class CodeBridgeGUI:
         
         ttk.Checkbutton(options_frame, text="預覽模式（不實際修改檔案）", variable=self.preview_mode).grid(row=0, column=0, sticky=tk.W)
         ttk.Checkbutton(options_frame, text="創建備份檔案", variable=self.create_backup).grid(row=1, column=0, sticky=tk.W)
+        
+        # 添加檔名轉換選項
+        self.rename_files = tk.BooleanVar()
+        ttk.Checkbutton(options_frame, text="同時轉換檔案名稱", variable=self.rename_files).grid(row=2, column=0, sticky=tk.W)
         row += 1
         
         # 輸出報告

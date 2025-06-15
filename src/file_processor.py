@@ -305,3 +305,39 @@ class FileProcessor:
             results.append(result)
         
         return results
+
+    def rename_files_if_needed(self, directory_path: str):
+        """重命名包含簡體中文的檔案名稱"""
+        try:
+            for root, dirs, files in os.walk(directory_path):
+                # 處理檔案重命名
+                for filename in files:
+                    old_path = os.path.join(root, filename)
+                    new_filename = self.converter.convert_text(filename)
+                    
+                    if new_filename != filename:
+                        new_path = os.path.join(root, new_filename)
+                        # 確保新檔名不會衝突
+                        counter = 1
+                        while os.path.exists(new_path):
+                            name, ext = os.path.splitext(new_filename)
+                            new_path = os.path.join(root, f"{name}_{counter}{ext}")
+                            counter += 1
+                        
+                        os.rename(old_path, new_path)
+                        self.statistics.record_file_rename(filename, os.path.basename(new_path))
+                        logging.info(f"📝 檔名轉換: {filename} → {os.path.basename(new_path)}")
+                
+                # 處理目錄重命名（從深層到淺層）
+                for dirname in dirs:
+                    old_dir_path = os.path.join(root, dirname)
+                    new_dirname = self.converter.convert_text(dirname)
+                    
+                    if new_dirname != dirname:
+                        new_dir_path = os.path.join(root, new_dirname)
+                        if not os.path.exists(new_dir_path):
+                            os.rename(old_dir_path, new_dir_path)
+                            logging.info(f"📁 目錄轉換: {dirname} → {new_dirname}")
+                        
+        except Exception as e:
+            logging.error(f"檔名轉換失敗: {str(e)}")

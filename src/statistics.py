@@ -171,6 +171,20 @@ class StatisticsCollector:
             self.overall_stats.most_converted_file_types[file_extension] = 0
         self.overall_stats.most_converted_file_types[file_extension] += conversions
     
+    def record_file_rename(self, old_name: str, new_name: str) -> None:
+        """
+        記錄檔名轉換
+        
+        Args:
+            old_name: 原檔名
+            new_name: 新檔名
+        """
+        if not hasattr(self, 'renamed_files'):
+            self.renamed_files = {}
+        
+        self.renamed_files[old_name] = new_name
+        self.logger.info(f"記錄檔名轉換: {old_name} → {new_name}")
+    
     def get_current_session_stats(self) -> Optional[SessionStats]:
         """獲取當前會話統計"""
         return self.current_session

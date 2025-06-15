@@ -1,0 +1,44 @@
+轉換前請看此說明：
+1、此轉換只适合原系統為Windows Server 2025.26100或26120正式版,所有轉換操作均在原系統中進行,不需要進PE
+2、可將Win2025.24H2.26100或26120正式版轉換為Win11企业版、專业版、專业工作站版、轉換回Windows Server 2025數據中心版
+     轉為Win11版可數字永久激活系統 也可以安裝一些限制在服務器系統上安裝的軟件或驱動
+3、Win2025.26100或26120轉為WIN11好像也能更新月度累計補丁
+     但系統安裝原版本對應的補丁更稳定
+     如果要給系統打補丁還是建議轉回Windows Server 2025數據中心版,打完補丁後再轉回
+     轉為新版本可能需重新激活系統,在新版本沒操作激活的情況下再轉回已經激活的老版本不需要重新激活
+4、如果要轉專业工作站版，建議先轉企业版重启後再轉專业工作站
+直接轉專业工作站用systeminfo查詢OS配置會顯示為獨立服務器
+先轉企业版重启後再轉專业工作站,就顯示為獨立工作站
+
+轉換详細步骤：
+1、運行"WIN2025和WIN11版本互換工具.bat"即可
+2、首次轉換版本時會將Branding和skus等需要的轉換文件拷贝的本地系統中
+     再次轉換只用保留"WIN2025和WIN11版本互換工具.bat"文件處理即可
+     首次轉換後,本目录下的Branding和skus等文件夹可以直接刪除,不影響以後的再次轉換
+3、轉換後建議重启下電腦 使系統完整的運行於轉換後的目標版本
+
+
+轉為Win11版後激活說明：
+可通過HEU工具數字激活系統
+也可以通過MAS來數字激活系統
+但是要修改下MAS的腳本，
+目前MAS是通過if exist "%SystemRoot%\Servicing\Packages\Microsoft-Windows-Server*Edition~*.mum"
+判斷是否為服務器系統
+我們可以將原有的代码中的：
+if exist "%SystemRoot%\Servicing\Packages\Microsoft-Windows-Server*Edition~*.mum" (
+%eline%
+echo ***
+echo ***
+goto dk_done
+)
+改為：
+for /f "skip=1 tokens=3" %%i in ('reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v EditionID') do set "EditionID=%%i"
+set "Server=%EditionID:~0,6%"
+if "%Server%"=="Server" (
+%eline%
+echo ***
+echo ***
+goto dk_done
+)
+修改後的MAS就可以數值永久激活轉換後的WIN11版系統
+Win2005 Server數據中心版不能數字激活 只能KMS38激活
