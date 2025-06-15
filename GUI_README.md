@@ -5,7 +5,7 @@
 ### 方法一：下載執行檔（推薦）
 
 1. **下載 exe 檔案**
-   - 前往 [GitHub Releases](https://github.com/your-repo/releases)
+   - 前往 [GitHub Releases](https://github.com/cheng-hsiang/CodeBridge/releases)
    - 下載最新版本的 `CodeBridge-GUI-*-windows.zip`
    - 解壓縮到任意目錄
 
@@ -17,8 +17,8 @@
 
 ```bash
 # 克隆專案
-git clone https://github.com/your-repo/transcoder.git
-cd transcoder
+git clone https://github.com/cheng-hsiang/CodeBridge.git
+cd CodeBridge
 
 # 安裝依賴
 pip install -r requirements.txt
@@ -224,9 +224,9 @@ GUI 版本會自動檢查：
 
 ### 技術支援
 - 📋 **查看日誌**：GUI 中的執行日誌區域
-- 🐛 **回報問題**：[GitHub Issues](https://github.com/your-repo/issues)
+- 🐛 **回報問題**：[GitHub Issues](https://github.com/cheng-hsiang/CodeBridge/issues)
 - 📖 **完整文件**：查看 README.md
-- 💬 **社群支援**：[GitHub Discussions](https://github.com/your-repo/discussions)
+- 💬 **社群支援**：[GitHub Discussions](https://github.com/cheng-hsiang/CodeBridge/discussions)
 
 ## 🔄 更新說明
 

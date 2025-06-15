@@ -8,7 +8,7 @@ vibe coding 到一半 還不知道效果如何 見諒
 
 [![Python](https://img.shields.io/badge/Python-3.6+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-2.0.0-orange.svg)](https://github.com/codebridge)
+[![Version](https://img.shields.io/badge/Version-2.0.0-orange.svg)](https://github.com/cheng-hsiang/CodeBridge)
 
 ## ✨ 特色功能
 
@@ -27,7 +27,7 @@ vibe coding 到一半 還不知道效果如何 見諒
 **🖥️ 圖形化介面，無需安裝 Python**
 
 1. **下載執行檔**
-   - 前往 [GitHub Releases](https://github.com/your-repo/releases)
+   - 前往 [GitHub Releases](https://github.com/cheng-hsiang/CodeBridge/releases)
    - 下載 `CodeBridge-GUI-*-windows.zip`
    - 解壓縮後執行 `CodeBridge-GUI.exe`
 
