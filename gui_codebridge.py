@@ -213,6 +213,33 @@ class CodeBridgeGUI:
             self.log("✅ CodeBridge 模組載入成功")
         else:
             self.log("❌ CodeBridge 模組載入失敗")
+
+        # GitHub 資訊區域
+        github_frame = ttk.LabelFrame(main_frame, text="📋 GitHub 資訊", padding=10)
+        github_frame.grid(row=row+2, column=0, columnspan=3, sticky=(tk.W, tk.E), pady=(0, 10))
+        
+        github_info_frame = ttk.Frame(github_frame)
+        github_info_frame.pack(fill="x")
+        
+        # GitHub 倉庫按鈕
+        self.github_btn = ttk.Button(
+            github_info_frame, 
+            text="🔗 查看 GitHub 倉庫",
+            command=self.open_github
+        )
+        self.github_btn.pack(side="left", padx=(0, 10))
+        
+        # 檢查更新按鈕
+        self.update_btn = ttk.Button(
+            github_info_frame,
+            text="🔄 檢查更新", 
+            command=self.check_updates
+        )
+        self.update_btn.pack(side="left", padx=(0, 10))
+        
+        # 版本資訊標籤
+        self.version_label = ttk.Label(github_info_frame, text="版本: v2.0.0")
+        self.version_label.pack(side="right")
     
     def log(self, message: str):
         """添加日誌訊息"""
@@ -498,7 +525,40 @@ class CodeBridgeGUI:
         btn_frame.pack(side=tk.BOTTOM, fill=tk.X, padx=10, pady=10)
         
         ttk.Button(btn_frame, text="關閉", command=help_window.destroy).pack(side=tk.RIGHT)
-        ttk.Button(btn_frame, text="查看 GitHub", command=lambda: webbrowser.open("https://github.com/codebridge")).pack(side=tk.RIGHT, padx=(0, 10))
+        ttk.Button(btn_frame, text="查看 GitHub", command=lambda: webbrowser.open("https://github.com/cheng-hsiang/CodeBridge")).pack(side=tk.RIGHT, padx=(0, 10))
+    
+    def open_github(self):
+        """開啟 GitHub 倉庫"""
+        webbrowser.open("https://github.com/cheng-hsiang/CodeBridge")
+    
+    def check_updates(self):
+        """檢查更新"""
+        try:
+            import requests
+            response = requests.get("https://api.github.com/repos/cheng-hsiang/CodeBridge/releases/latest", timeout=5)
+            if response.status_code == 200:
+                data = response.json()
+                latest_version = data['tag_name']
+                current_version = "v2.0.0"
+                
+                if latest_version != current_version:
+                    result = messagebox.askyesno(
+                        "發現新版本", 
+                        f"發現新版本 {latest_version}！\n\n"
+                        f"目前版本：{current_version}\n"
+                        f"最新版本：{latest_version}\n\n"
+                        f"是否前往下載頁面？"
+                    )
+                    if result:
+                        webbrowser.open(f"https://github.com/cheng-hsiang/CodeBridge/releases/tag/{latest_version}")
+                else:
+                    messagebox.showinfo("版本檢查", f"您已使用最新版本 {current_version}")
+            else:
+                messagebox.showwarning("檢查更新", "無法連接到 GitHub 檢查更新。")
+        except ImportError:
+            messagebox.showinfo("缺少依賴", "檢查更新功能需要 requests 模組。\n您可以手動前往 GitHub 查看最新版本。")
+        except Exception as e:
+            messagebox.showerror("錯誤", f"檢查更新時發生錯誤：{str(e)}")
     
     def run(self):
         """運行GUI應用程序"""
