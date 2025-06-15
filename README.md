@@ -271,23 +271,6 @@ python examples/basic_usage.py
 python examples/advanced_usage.py
 ```
 
-## 📈 效能指標
-
-- **處理速度**: ~10,000 字符/秒
-- **記憶體使用**: <50MB (一般專案)
-- **支援檔案**: 單檔最大 10MB
-- **準確率**: >99% (基於內建字庫)
-
-## 🤝 貢獻指南
-
-歡迎貢獻程式碼、回報問題或提出功能建議！
-
-1. **Fork** 此專案
-2. **創建** 功能分支 (`git checkout -b feature/amazing-feature`)
-3. **提交** 變更 (`git commit -m 'Add amazing feature'`)
-4. **推送** 到分支 (`git push origin feature/amazing-feature`)
-5. **創建** Pull Request
-
 ### 開發設定
 
 ```bash
@@ -328,19 +311,6 @@ A: 支援 Windows、macOS、Linux 等所有支援 Python 3.6+ 的系統。
 
 ### Q: 如何報告問題或建議新功能？
 A: 請在 GitHub Issues 中提出，我們會盡快回應。
-
-## 🔗 相關連結
-
-- [GitHub Repository](https://github.com/codebridge)
-- [Documentation](https://codebridge.readthedocs.io)
-- [Issue Tracker](https://github.com/codebridge/issues)
-- [Changelog](CHANGELOG.md)
-
-## 📞 聯絡資訊
-
-- **Email**: dev@codebridge.com
-- **GitHub**: [@codebridge](https://github.com/codebridge)
-- **Website**: https://codebridge.com
 
 ---
 
